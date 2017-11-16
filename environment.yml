@@ -1,4 +1,4 @@
-name: async-tools-dev
+name: ease-engine
 channels:
 - anaconda-fusion
 - defaults
@@ -16,9 +16,7 @@ dependencies:
 - pip=9.0.1=py36_1
 - prompt_toolkit=1.0.15=py36_0
 - ptyprocess=0.5.2=py36_0
-- py=1.4.34=py36_0
 - pygments=2.2.0=py36_0
-- pytest=3.2.1=py36_0
 - python=3.6.2=0
 - readline=6.2=2
 - setuptools=36.4.0=py36_1
@@ -34,5 +32,8 @@ dependencies:
 - pip:
   - ipython-genutils==0.2.0
   - prompt-toolkit==1.0.15
-prefix: /Applications/anaconda/envs/async-tools-dev
+  - py==1.5.1
+  - pytest==3.2.5
+  - pyzmq==16.0.3
+prefix: /Applications/anaconda/envs/ease-engine
 

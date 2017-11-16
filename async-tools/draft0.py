@@ -3,12 +3,12 @@ import pytest
 
 async def t1():
     print('t1')
-    # await asyncio.sleep(.5)
+    await asyncio.sleep(.5)
     loop = asyncio.get_event_loop()
 
 async def t2():
     print('t2')
-    # await asyncio.sleep(.5)
+    await asyncio.sleep(.5)
     loop = asyncio.get_event_loop()
 
 class test_class():
