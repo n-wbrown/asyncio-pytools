@@ -13,6 +13,7 @@ loop = asyncio.get_event_loop()
 # Schedule the first call to display_date()
 loop.call_soon(display_date, loop.time()+5.0, loop,1)
 loop.call_soon(display_date, loop.time()+3.0, loop,1.2)
+
 # Blocking call interrupted by loop.stop()
 loop.run_forever()
 loop.close()
