@@ -1,6 +1,9 @@
+"""
+loopedAsyncDef.py
 
-
-
+Basic repeat-execution of an async function using run_until complete with loop
+inside the async function. 
+"""
 import asyncio
 import datetime
 
@@ -11,8 +14,6 @@ async def display_date(loop):
         if (loop.time() + 1.0) >= end_time:
             break
         await asyncio.sleep(1)
-
-
 
 
 loop = asyncio.get_event_loop()
