@@ -34,6 +34,6 @@ dependencies:
   - prompt-toolkit==1.0.15
   - py==1.5.1
   - pytest==3.2.5
-  - pyzmq==16.0.3
+  - pyzmq==17.0.0b3
 prefix: /Applications/anaconda/envs/ease-engine
 
