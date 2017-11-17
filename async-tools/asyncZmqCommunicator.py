@@ -13,17 +13,23 @@ import zmq.asyncio
 
 async def server(loop,index,sock):
     print("server:",index)
+    await asyncio.sleep(2)
     message = await sock.recv()
     print("server received:",message)#this line isn't being reached 
-    #sock.send(b"response")
+    sock.send(b"response")
 
 async def client(loop,index,sock):
     print("client:",index)
-    await asyncio.sleep(1)
+    await asyncio.sleep(1) # this line is optional
+    a = datetime.datetime.now()
     print("client sending")
     sock.send(b"initiating")
-    #message = await sock.recv()
-    #print("client received:",message)
+    sock.send(b"initiating")
+    sock.send(b"initiating")
+    message = await sock.recv()
+    b = datetime.datetime.now()
+    print("client received:",message)
+    print("delay:",b-a)
 
 async def ticker(loop):
     for i in range(5):
@@ -50,7 +56,8 @@ if use_async:
     s_sock = ctx.socket(zmq.REP)
     c_sock = ctx.socket(zmq.REQ)
     # bind for incoming 
-    s_sock.bind("tcp://*:5555")
+    s_sock.bind("tcp://127.0.0.1:5555")
+    #print(dir(s_sock))
     # connect for outgoing
     c_sock.connect("tcp://localhost:5555")
 
@@ -60,7 +67,7 @@ if use_async:
 
 
     tasks = [
-        loop.create_task(ticker(loop)),
+        #loop.create_task(ticker(loop)),
         loop.create_task(client(loop,0,c_sock)),
         loop.create_task(server(loop,0,s_sock)),
     ]
